@@ -1,0 +1,19 @@
+
+
+-------GAME CONTROLS-------
+
+UP = W
+DOWN = S
+LEFT = A
+RIGHT = D
+
+FIRE = SPACE
+
+MUTE MUSIC = M
+UNMUTE MUSIC = ENTER
+
+PAUSE (in-game only) = P
+QUIT TO MENU (in-game only) = Q
+
+---Complete the relevant method in Part 3--
+RESET LEVEL BACK TO BEGINNING = R

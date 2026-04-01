@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Input.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Hud.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="SceneManager.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Menu.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayGame.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Creature.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCharacter.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOver.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Projectile.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="Audio.cpp">
+      <Filter>Source</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaHelper.cpp">
+      <Filter>Lua</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Game.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Input.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaHelper.h">
+      <Filter>Lua</Filter>
+    </ClInclude>
+    <ClInclude Include="Hud.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="SceneManager.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Menu.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayGame.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Creature.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCharacter.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOver.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Projectile.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+    <ClInclude Include="Audio.h">
+      <Filter>Header</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header">
+      <UniqueIdentifier>{38b5cfd8-e825-4cc4-adc5-4b4bac16ae49}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source">
+      <UniqueIdentifier>{35487f32-e73d-42a0-a70e-38afef5cdada}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Lua">
+      <UniqueIdentifier>{573b8884-0ef7-4f09-8693-c20b2e51184b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Instructions.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Script.lua">
+      <Filter>Lua</Filter>
+    </None>
+  </ItemGroup>
+</Project>
