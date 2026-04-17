@@ -68,7 +68,7 @@ Doing this could result in the above penalty if the game stops working...
 --[[21]]timeBetweenShots = 0.5
 --[[22]]MaximumPooledPlayerShots = 10
 --[[23]]MaximumPooledEnemyShots = 20
---[[24 gets the game scrolling]]SceneScrollAmmount = 100 
+--[[24 gets the game scrolling]]SceneScrollAmmount = 100.0
 --[[25]]DistanceFromEndLevelExit = 300
 
 --[[26 bullet variant 1]]PlayerBulletSprite = "assets/laser player.png" 
@@ -79,7 +79,7 @@ Doing this could result in the above penalty if the game stops working...
 --[[30]]livesTextPosition = {x = 0, y = 0} --filled out for you
 --[[31]]LivesIconImagePosition = {x = 0, y = 10} --filled out for you
 
---[[32]]LevelTextColour = {r = 150, g = 79, b = 255} 
+--[[32]]LevelTextColour = {r = 550, g = 29, b = 155} 
 --[[33]]LevelTextPosition = {x = 100, y = 0} --filled out for you
 
 --[[34]]ScoreTextColour = {r = 250, g = 120, b = 200} 
@@ -118,14 +118,13 @@ Doing this could result in the above penalty if the game stops working...
 --make a table here for all 9 of the explosion frames
 --The table keys should use letters NOT numbers (i.e. a = "assets/anasset.png")
 --look in the place they are set in the creature class to see
---[[52 all the explosion frames]]explosionFrames = {a = "assets/regularExplosion00.png", b = "assets/regularExplosion01.png", c = "assets/regularExplosion02.png"
-, d = "assets/regularExplosion03.png", e = "assets/regularExplosion04.png", f = "assets/regularExplosion05.png", g = "assets/regularExplosion06.png", h = "assets/regularExplosion07.png", i = "assets/regularExplosion08.png"}
+--[[52 all the explosion frames]]explosionFrames = {a = "assets/regularExplosion00.png", b = "assets/regularExplosion01.png", c = "assets/regularExplosion02.png", d = "assets/regularExplosion03.png", e = "assets/regularExplosion04.png", f = "assets/regularExplosion05.png", g = "assets/regularExplosion06.png", h = "assets/regularExplosion07.png", i = "assets/regularExplosion08.png"}
 
 --[[53 the player ship]]PlayerSprite = "assets/player ship.png" 
 
 --Player class constants x 4 ************************************************************************************************
---[[54]]MaxLives = 3
---[[55 starting lives]]InitialLives = MaxLives 
+--[[54]]MaxLives = 4
+--[[55 starting lives]]InitialLives = 3
 --[[56]]ScoreMultiplier = 10
 --[[57]]ScoreMultipleToGetBonus = 1000 --filled out for you
 
@@ -140,8 +139,7 @@ Doing this could result in the above penalty if the game stops working...
 --make a table here for all 6 of the coloured wall images
 --The table keys should use letters NOT numbers (i.e. a = "assets/anasset.png")
 --look in the place they are set in the Level class to see
---[[60 the different coloured wall blocks]]LevelBasedWallTextures = {a = "assets/spaceBuilding_001.png", b = "assets/spaceBuilding_007.png", c = "assets/spaceBuilding_008.png", d = "assets/spaceBuilding_009.png"
-, e = "assets/spaceBuilding_010.png", f = "assets/spaceBuilding_011.png"}
+--[[60 the different coloured wall blocks]]LevelBasedWallTextures = {a = "assets/spaceBuilding_007.png", b = "assets/spaceBuilding_012.png", c = "assets/spaceBuilding_008.png", d = "assets/spaceBuilding_009.png", e = "assets/spaceBuilding_010.png", f = "assets/spaceBuilding_011.png"}
 
 
 --[[61]]nonCollidableBackgroundWall = "assets/spaceBuilding_001.png" --filled out for you
@@ -193,24 +191,37 @@ end
 
 
 --function 1 located in creature.cpp and LuaHelper.cpp
-function CallLuaMoveUp(speedVal, PositionY)
+function MoveUp(speedVal, PositionY)
 	if (PositionY > 0) then
 		PositionY = PositionY - speedVal
 	end
 	return PositionY
 end
 --function 2 located in creature.cpp and LuaHelper.cpp
- function CallLuaMoveDown(height, speedVal, PositionY)
+ function MoveDown(height, speedVal, PositionY)
  	if (PositionY + height + speedVal <= 900) then
 		PositionY = PositionY + speedVal
 	end
 	return PositionY
 end
 --function 3 located in PlayerCharacter.cpp
-function CallLuaIncreaseScoreAndLives(m_Lives, m_Score)
-
+function IncreaseScoreAndLives(m_Lives, m_Score)
+	m_Score = m_Score + enemyPointValue
+	if (m_Score % ScoreMultipleToGetBonus == 0) then
+		if (m_Lives < MaxLives) then
+			m_Lives = m_Lives + 1
+		else
+			m_Score = m_Score + (enemyPointValue * ScoreMultiplier)
+		end	
+	end
+	return m_Lives, m_Score
+end
 --function 4 located in PlayerCharacter.cpp
-function CallLuaResetScore(m_LastScore, m_Score)
+function ResetScore(m_LastScore, m_Score)
+	m_LastScore = m_Score
+	m_Score = 0
+	return m_LastScore, m_Score
+end
 
 
 
@@ -245,9 +256,13 @@ end
 --**********************************************************************************************
 
 --C++ function call 1 in Level.cpp line 181 and PlayGame.cpp line 262
-
+function BuildLevel()
+	CDispatcher("BuildNewLevel")
+end
 --C++ function call 2 in PlayGame.cpp line 261. check the .h file for the function name
-
+function ResetEverything()
+	CDispatcher("ResetAll", startingLevel) 
+end
 
 --[[*****************************************PART 4 OF ASSIGNMENT TASK***********************************************************
 Create up to 2 more C++ function calls yourself.

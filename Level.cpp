@@ -38,14 +38,14 @@ Level::Level(int scrWidth, int scrHeight)
     //***********************PART 3****************************************
     //Uncomment this to call BuildNewLevel() in the script file
     //*********************************************************************
-    //CallVoidVoidFunc(L, "BuildLevel");//BuildLevel is what the lua function is called
+    CallVoidVoidFunc(L, "BuildLevel");//BuildLevel is what the lua function is called
     //*********************************************************************
 
     //*********************************************************************
     //***********************PART 3****************************************
     //comment this to call BuildNewLevel() in the script file**************
     //*********************************************************************
-    BuildNewLevel();
+    //BuildNewLevel();
     //*********************************************************************
 }
 
@@ -180,14 +180,14 @@ void Level::resetLevels(int levelNumber)
     //***********************PART 3****************************************
     //Uncomment this to call BuildNewLevel() in the script file
     //*********************************************************************
-    //CallVoidVoidFunc(L, "BuildLevel");
+    CallVoidVoidFunc(L, "BuildLevel");
     //*********************************************************************
     
     //*********************************************************************
     //***********************PART 3****************************************
     //comment this to call BuildNewLevel() in the script file**************
     //*********************************************************************
-    BuildNewLevel();
+    //BuildNewLevel();
     //*********************************************************************
 }
 

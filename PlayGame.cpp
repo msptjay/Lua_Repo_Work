@@ -259,8 +259,8 @@ E_GameStates PlayGame::Update(float Delta, Game* game, Input* input)
         {
             //Call the Lua function which calls the reset C++ function here
             //uncomment these when you are ready
-            /*CallVoidVoidFunc(L, "ResetEverything");
-            CallVoidVoidFunc(L, "BuildLevel");*/
+            CallVoidVoidFunc(L, "ResetEverything");
+            CallVoidVoidFunc(L, "BuildLevel");
         }
         //***********************************************************************
         for (size_t index = 0; index < p_enemies.size(); index++)

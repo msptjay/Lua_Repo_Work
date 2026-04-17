@@ -159,6 +159,7 @@ void PlayerCharacter::IncreaseScoreAndLives(int Val)
     //******************Part 2*******************************
     //comment this entire code block to use the lua function*
     //*******************************************************
+    /*
     m_Score += Val;
     if (m_Score % ScoreMultForBonus == 0)
     {
@@ -171,10 +172,11 @@ void PlayerCharacter::IncreaseScoreAndLives(int Val)
             m_Score += Val * ScoreMultiplier;
         }
     }
+    */
     //********************************************************
 
     //Uncomment this to use the lua function
-    //CallLuaIncreaseScoreAndLives(L, "IncreaseScoreAndLives", m_Lives, m_Score);
+    CallLuaIncreaseScoreAndLives(L, "IncreaseScoreAndLives", m_Lives, m_Score);
 
 }
 
@@ -183,12 +185,14 @@ void PlayerCharacter::ResetScore()
     //*******************Part 2******************************
     //comment this entire code block to use the lua function*
     //*******************************************************
+    /*
     m_LastScore = m_Score;
     m_Score = 0;
+    */
     //********************************************************
 
     //Uncomment this to use the lua function
-    //CallLuaResetScore(L, "ResetScore", m_LastScore, m_Score);
+    CallLuaResetScore(L, "ResetScore", m_LastScore, m_Score);
 }
 
 int PlayerCharacter::GetLastScore()
