@@ -126,7 +126,7 @@ Doing this could result in the above penalty if the game stops working...
 --[[54]]MaxLives = 4
 --[[55 starting lives]]InitialLives = 3
 --[[56]]ScoreMultiplier = 10
---[[57]]ScoreMultipleToGetBonus = 1000 --filled out for you
+--[[57]]ScoreMultipleToGetBonus = 1000 --filled out for you 
 
 --Enemy class constants x 1 ************************************************************************************************* 
 --[[58 how much are enemies worth]]enemyPointValue = 100
